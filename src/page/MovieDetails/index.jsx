@@ -2,7 +2,7 @@ import { fetchGetMovieDetails } from 'api/movieDbApi';
 import { HiArrowUturnLeft } from 'react-icons/hi2';
 import Loader from 'components/Loader';
 import Notiflix from 'notiflix';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
   Button,
@@ -95,7 +95,9 @@ const MovieDetails = () => {
           </li>
         </ListInfo>
         <hr />
+        <Suspense>
         <Outlet />
+        </Suspense>       
       </div>
     </>
   );
